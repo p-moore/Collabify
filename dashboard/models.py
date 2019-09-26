@@ -1,3 +1,4 @@
 from django.db import models
-
-# Create your models here.
+#from users.models import CustomUser
+#import user and if he has a team
+#this is not necessary for my project

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Includes all the necessary CDN's and the font styling options -->
+<head>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.ico"/>
+  {% load static %}
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<!-- Navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid"style="background-color:#000000;">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="background-color:#000000;"><font color="white" style=" size: 20px; font-family: 'Exo 2', sans-serif;"><strong>Collabify </strong></font>
+        <font style="font-size:22px;font-family:'Pacifico', cursive; color:white; padding-left:10px;">for</font>
+      </a>
+      <img src = "../static/images/LSU_Gold_CMYK.png" class="image-responsive" height="50" width="90" style="padding-left:0px;padding-top:14px;padding-bottom:14px;padding-right:14px;"><br>
+    </div>
+  <div>
+       <div style = "float:right; padding:5px;">
+        <form method="get" action="users/login"><!--I changed this-->
+          <button type = "submit" style = "border-radius:5px;background-color:#3C3A3A;border-color: #6E6868;margin: 2px; font-family: 'Exo 2', sans-serif;" class ="btn btn-primary">Login</button>
+        </form>
+      </div>
+
+      <div style = "float:right; padding:5px;">
+        <form method="get" action="users/signup">
+          <button type = "submit" style = "border-radius:5px;background-color:#3C3A3A;border-color: #6E6868; margin: 2px; font-family: 'Exo 2', sans-serif;" class ="btn btn-primary">Signup</button>
+        </form>
+      </div>
+    </div>
+    </div>
+</nav>
+<hr>
+
+<!-- Body containing the different intro sections -->
+
+<div style="text-align:right;">
+<!--<div class = "container-fluid" id = "Section_1" style = "background-color:#461D7C; border-radius:5px; color:white;">-->
+<div id="section1" class="container-fluid" style="background-color:#3C1053;"><br>
+  <h1>
+    <font style="color:white;">
+      "Alone we can do so little; together we can do so much."</h1>
+  <h3>-Helen Keller</h3>
+  <p style="font-size:19px;">Here at collabify we celebrate team work that's why we designed our software to help our peers at LSU work together and focus on the project rather than finding the right tools to collaborate.</p>
+</font>
+  <img src = "../static/images/index_2.png" class="img-responsive">
+</div>
+
+<div id="section2" class="container-fluid" style="background-color:#3C1053;"><br><br>
+  <h1>
+    <font style="color:white;">
+      "It is literally true that you can succeed best and quickest by helping others to succeed."</h1>
+  <h3>-Napolean Hill</h3>
+</font>
+  <img src = "../static/images/index_3.png" class="img-responsive">
+</div>
+
+
+<!-- Footer -->
+<div id="footer" class="container-fluid" style="text-align:center;">
+    <p>About</p>
+    <p>Contact</p>
+    <p>Feedback</p>
+    <p>Email us at: <strong>collabify-us@gmail.com</strong> </p>
+    <div style="font-size: 35px;">
+      <i style="padding: 15px;" class="fab fa-facebook"></i><i style="padding: 15px;" class="fab fa-instagram"></i> <i style="padding: 15px;" class="fab fa-linkedin"></i>
+      <i style="padding: 15px;" class="fab fa-slack"></i><i style="padding: 15px;" class="fab fa-google-plus-g"></i>
+    </div>
+
+    <p><strong><i class="far fa-copyright"></i> Collabify 2018</strong></p>
+</div>
+</div>
+
+</body>
+</html>

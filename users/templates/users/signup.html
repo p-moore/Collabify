@@ -1,0 +1,41 @@
+<!--This extends might not work-->
+{% extends "users/base.html" %}
+{% block content %}
+<div class = "container">
+  <div class="container" style="background-color:#3C1053; border-radius: 5px;">
+    <h2 class="card-header text-center" style="font-size: 40px; color: white;">Collabify</h2>
+    <div class="card-body">
+      <div class="container" style=" border-radius: 5px;">
+        <div class="container">
+          <p style="color:white;">* All fields are required.</p>
+          <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+              <p style="text-align: center;">
+                <font color="white" style=" size: 20px; font-family: 'Exo 2', sans-serif;">{{ field.label_tag }}</font><br>
+                <font color="black" style=" size: 20px; font-family: 'Exo 2', sans-serif;">{{ field }}</font>
+              </p>
+              {% for error in field.errors %}
+                <p style="color:red">{{ error }}</p>
+              {% endfor %}
+            {% endfor %}
+            <hr>
+            <form method="get" action="users/signup">
+              <button class="btn btn-secondary btn-block" type="submit" style = "font-size: 16px; font-family: 'Exo 2', sans-serif;">Sign Up</button>
+            </form>
+          </form>
+          <div class="border-top pt-3">
+            <small class="text-muted">
+              Already have an account? <a class="ml-2" href="/users/login">Sign In</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+  <p style="text-align:center; color:white;"><strong><i class="far fa-copyright"></i> Collabify 2018</strong></p>
+
+
+{% endblock %}

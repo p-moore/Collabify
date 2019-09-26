@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Application definition, so django knows where to look for templates,
+#blog.apps.BlogConfig -- BlogConfig is the class in blog/apps.py file
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'scripts',#want to delete this
+    'collabify',
+    'users',
+    'dashboard',
+    'board',
+    'team',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +61,7 @@ ROOT_URLCONF = 'collabify.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +83,7 @@ WSGI_APPLICATION = 'collabify.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db2.sqlite3'),
     }
 }
 
@@ -99,6 +106,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.CustomUser'#creates custom user based on our requirements -- adds team_id to user db
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -118,3 +127,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "scripts/static"),os.path.join(BASE_DIR, "scripts/static/css"),os.path.join(BASE_DIR, "scripts/static/js"),
+    os.path.join(BASE_DIR, "scripts/static/vendor"),
+    os.path.join(BASE_DIR, "scripts/static/images"),
+]
+
+LOGIN_URL = 'users/login'
+LOGOUT_URL = 'users/logout'
+LOGIN_REDIRECT_URL = '/dashboard/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
