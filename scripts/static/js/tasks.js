@@ -37,17 +37,17 @@ function Task(name, percent, prio, assigned){
   if(prio == 0){
     myLowTasks.push(this);
     this.id = "dragL" + totalLowTasksMade;
-	totalLowTasksMade++;
+    totalLowTasksMade++;
   } else if (prio == 1) {
     myMediumTasks.push(this);
     writeMedUserTask(this.percentage, this.name);
     this.id = "dragM" + totalMedTasksMade;
-	totalMedTasksMade++;
+    totalMedTasksMade++;
   } else {
     myHighTasks.push(this);
     writeHighUserTask(this.percentage, this.name);
     this.id = "dragH" + totalHighTasksMade;
-	totalHighTasksMade++;
+    totalHighTasksMade++;
   }
 }
 
@@ -75,7 +75,7 @@ function displayLowTask(task){
   var parsedID = id.slice(13); //seperates ID into usable parts
   var parsedPrio = parsedID.slice(0,1);
   var parsedIDNum = parsedID.slice(1);
-    console.log("parsedID: " + parsedID+"");
+  console.log("parsedID: " + parsedID+"");
   console.log("parsedprio: " + parsedPrio+"");
   console.log("parsedIDNum: " + parsedIDNum+"");
   var elem = document.getElementById("Bardrag"+parsedID);
