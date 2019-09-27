@@ -10,7 +10,7 @@ class render(models.Model):
 	#do stuff to render the board on startup
 	#continuously call this to keep up with real time?
 '''
-class tasks(models.Model):
+class Task(models.Model):
 	team_id = models.ForeignKey(Team, on_delete=models.CASCADE)#many to one relationship
 	task_id = models.AutoField(primary_key=True)
 	assigned_to = models.ForeignKey(User, on_delete=models.CASCADE)

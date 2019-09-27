@@ -14,7 +14,12 @@ class SignUpForm(UserCreationForm):
 class CustomUserCreationForm(UserCreationForm):
 	class Meta:
 		model = CustomUser
-		fields = ('first_name','last_name', 'username','email', 'password',)
+		fields = ('first_name','last_name', 'username','email', 'password', 'team')
+
+class CustomUserTeamRegisterForm(UserCreationForm):
+	class Meta:
+		model = CustomUser
+		fields = ('team',)
 
 class CustomUserChangeForm(UserChangeForm):
 	class Meta:

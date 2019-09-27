@@ -10,7 +10,7 @@ def board(request):
     return render(request, 'board/board.html')
 '''
 def board(request):
-	pass
+	return render(request,'board.html')
 '''
 def home(request):
 	context = {

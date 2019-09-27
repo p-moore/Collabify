@@ -99,12 +99,13 @@ def board(request):
 
 @login_required
 def dashboard(request):
+    user = request.user
     form = UserCreationForm()
     #what does c do?
     c = {'form': form}
     #not sure what render to response is, but this should render the dashboard and also pass in name as an attr
     #need to check if user is in any teams
-    return render_to_response("dashboard_2.html", {'name': request.user.username}) 
+    return render_to_response("dashboard_2.html", {'user': user}) 
 '''
 #commented all of this out
 def signup(request):

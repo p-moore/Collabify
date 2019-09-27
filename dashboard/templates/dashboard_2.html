@@ -15,7 +15,7 @@
   limitations under the License
 -->
 
-<!doctype html>
+<doctype html>
 <html lang="en">
 
 <!-- Includes all the necessary CDN's and the font styling options -->
@@ -90,41 +90,64 @@
           </ul>
         </div>
       </header>
+
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
           <div class="navbar-header">
-            <a style="color:inherit; text-decoration: none;" class="navbar-brand" href="#" style="background-color:#000000;"><font color="white" style=" size: 20px; font-family: 'Exo 2', sans-serif;"><strong>Collabify </strong></font>
+            <a style="color:inherit; text-decoration: none;" class="navbar-brand" href="#" style="background-color:#000000;">
+              <font color="white" style=" size: 20px; font-family: 'Exo 2', sans-serif;">
+                <strong>Collabify </strong>
+              </font>
               <font style="font-size:16px;font-family:'Pacifico', cursive; color:white; padding-left:10px;">for</font>
             </a>
-            <img src = "../static/images/LSU_Gold_CMYK.png" class="image-responsive" height="25" width="80" style="padding-left:10px;padding-top:14px;padding-bottom:14px;padding-right:14px;"><br>
-          </div><br>
+            <img src = "../static/images/LSU_Gold_CMYK.png" class="image-responsive" height="25" width="80" style="padding-left:10px;padding-top:14px;padding-bottom:14px;padding-right:14px;">
+            <br>
+          </div>
+          <br>
           <div class="demo-avatar-dropdown">
-            <span><i class="fas fa-user fa-2x"></i><strong> Welcome, {{name}}</strong></span>
+            <span>
+              <i class="fas fa-user fa-2x"></i>
+              <strong> 
+                <!--prints first name or username in that order.-->
+                Welcome, {% firstof user.first_name user.username %} 
+              </strong>
+            </span>
             <div class="mdl-layout-spacer"></div>
             <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
               <i class="material-icons" role="presentation">arrow_drop_down</i>
               <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item"><i class="fas fa-2x fa-id-badge" style="padding:5px;"></i>Account</li>
-              <li class="mdl-menu__item"><i class="fas fa-2x fa-cogs" style="padding:5px;"></i>Settings</li>
-              <li class="mdl-menu__item"><i class="fas fa-2x fa-sign-out-alt" style="padding:5px;"></i><a style="color:inherit;text-decoration:none;" href = "{% url 'logout' %}">Logout</a></li>
-
+              <li class="mdl-menu__item"><i class="fas fa-2x fa-id-badge" style="padding:5px;"></i>Account
+              </li>
+              <li class="mdl-menu__item">
+                <i class="fas fa-2x fa-cogs" style="padding:5px;"></i>Settings
+              </li>
+              <li class="mdl-menu__item">
+                <i class="fas fa-2x fa-sign-out-alt" style="padding:5px;"></i>
+                <a style="color:inherit;text-decoration:none;" href = "{% url 'logout' %}">Logout</a>
+              </li>
             </ul>
           </div>
         </header>
+
         <!-- Material Sidebar -->
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="/dashboard"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-          <a class="mdl-navigation__link" href="/attendance"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Attendance</a>
-          <a class="mdl-navigation__link" href="/team_creation"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Team Creation</a>
-          <a class="mdl-navigation__link" href="/team_info"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Team Info</a>
-          <a class="mdl-navigation__link" href="/events"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Events</a>
-          <a class="mdl-navigation__link" href="/board"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Board</a>
+          <a class="mdl-navigation__link" href="/dashboard">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home
+          </a>
+          <!--<A href="..." onClick='document.myform.submit()'>Submit Form</a>-->
+          <a class="mdl-navigation__link" href="/team">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Team
+          </a>
           <div class="mdl-layout-spacer"></div>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span>Need help?</a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>
+            <span class="visuallyhidden">Help</span>Need help?
+          </a>
         </nav>
       </div>
+
       <!-- SVG displaying the attd, participation and grades -->
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">

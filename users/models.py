@@ -6,7 +6,7 @@ from django.db.models.signals import post_save
 
 #this works
 class CustomUser(AbstractUser):
-	team_id = models.ForeignKey(Team, on_delete=models.CASCADE,null=True)#possibly wrong
+	team = models.ForeignKey(Team, to_field='team_id', on_delete=models.CASCADE, default=0)
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)

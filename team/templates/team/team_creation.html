@@ -45,6 +45,45 @@
 
   <div class="wrap-contact100" style="font-family: 'Exo 2', sans-serif;">
     <form class="contact100-form validate-form" method="post" enctype='multipart/form-data'>{% csrf_token %}
+      
+      {% if form.non_field_errors %}
+        <ul>
+        {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% for hidden_field in form.hidden_fields %}
+        {% if hidden_field.errors %}
+          <ul>
+            {% for error in hidden_field.errors %}
+              <li>(Hidden field {{ hidden_field.name }}) {{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {{ hidden_field }}
+      {% endfor %}
+
+{% for field in form.visible_fields %}
+      <tr>
+        <th>{{ field.label_tag }}</th>
+        <td>
+          {% if field.errors %}
+            <ul>
+              {% for error in field.errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {{ field }}
+          {% if field.help_text %}
+            <br />{{ field.help_text }}
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+
       <span class="contact100-form-title">
         <p style = "font-family: 'Exo 2', sans-serif; font-size:30px;">Collabify : Team setup</p>
       </span>
@@ -52,28 +91,32 @@
       <br>
 
       {{ form.non_field_errors }}
+<!--
       <div class="wrap-input100 validate-input" data-validate="Please enter your team name">
         {{ form.team_name.errors }}
         <input class="input100" type="text" name= "team_name" placeholder="Team Name">
 
-        <!-- <label for="id_name">Team Name</label> -->
-        <!-- {{ form.team_name }} -->
+
           <span class="focus-input100"></span>
       </div>
+-->
       <!-- * team description -->
+      <!--
       <div class="wrap-input100 validate-input" data-validate = "Please enter your team description">
-          {{ form.team_description.errors }}
+          {{ form.team_desc.errors }}
         <textarea class="input100" name="team_description" placeholder="Team Description"></textarea>
-        <!-- <label for="id_description">Team Description</label> -->
-        <!-- {{ form.team_description }} -->
+        
         <span class="focus-input100"></span>
       </div>
+      -->
       <!-- team members -->
+      <!--
       <div class="validate-input" data-validate="Please select team members">
-        {{ form.team_member.errors }}
+        {{ form.team_members.errors }}
         <label for="id_team_member">Team Member </label>
-        {{ form.team_member }}
+        {{ form.team_members }}
       </div>
+      -->
       <div class="container-contact100-form-btn">
         <button class="contact100-form-btn", type="submit">
           <span>
